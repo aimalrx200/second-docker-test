@@ -15,10 +15,6 @@ jobs:
       matrix:
         node-version: [18.x, 20.x]
 
-    defaults:
-      run:
-        working-directory: ./backend
-
     steps:
       - uses: actions/checkout@v3
 
@@ -28,11 +24,17 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
 
-      - name: Install dependencies
+      - name: Install root dependencies
         run: npm install
 
+      - name: Install backend dependencies
+        run: npm install
+        working-directory: ./backend
+
       - name: Run linter on backend
-        run: npx eslint --config ../eslint.config.js .
+        run: npx eslint ./backend
+        working-directory: .
 
       - name: Run backend tests
         run: npm test
+        working-directory: ./backend
