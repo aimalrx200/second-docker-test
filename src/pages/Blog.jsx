@@ -1,11 +1,12 @@
-import { PostList } from "./components/PostList";
-import { CreatePost } from "./components/CreatePost";
-import { PostSorting } from "./components/PostSorting";
-import { PostFilter } from "./components/PostFilter";
+import { PostList } from "../components/PostList";
+import { CreatePost } from "../components/CreatePost";
+import { PostSorting } from "../components/PostSorting";
+import { PostFilter } from "../components/PostFilter";
 import { useQuery } from "@tanstack/react-query";
-import { getPosts } from "./api/posts";
+import { getPosts } from "../api/posts";
 import { useState } from "react";
-import { SimplePopup } from "./components/reuseable-components/SimplePopup";
+import { SimplePopup } from "../components/reuseable-components/SimplePopup";
+import { Header } from "../components/Header";
 
 export function Blog() {
   const [author, setAuthor] = useState("");
@@ -24,6 +25,9 @@ export function Blog() {
   return (
     <>
       <div className="p-5 flex flex-col gap-5">
+        <div>
+          <Header />
+        </div>
         <CreatePost />
         <hr className="text-gray-300" />
         <PostFilter
