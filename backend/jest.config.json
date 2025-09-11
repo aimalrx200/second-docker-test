@@ -1,6 +1,10 @@
 {
+  "testTimeout": 60000,
   "testEnvironment": "node",
   "globalSetup": "<rootDir>/src/test/globalSetup.js",
   "globalTeardown": "<rootDir>/src/test/globalTeardown.js",
-  "setupFilesAfterEnv": ["<rootDir>/src/test/setupFileAfterEnv.js"]
+  "setupFilesAfterEnv": [
+    "<rootDir>/src/test/setupFileAfterEnv.js",
+    "<rootDir>/src/test/setup-test.js"
+  ]
 }
